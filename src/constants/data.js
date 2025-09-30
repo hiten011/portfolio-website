@@ -52,18 +52,18 @@ export const education = {
 };
 
 export const projects = [
-  {
-    title: "CatWiz – AI Challenge Website",
-    period: "Aug 2025 - Present",
-    website: "https://catwiz.onrender.com/",
-    github: "",
-    description: [
-      "Developed a challenge-based AI interaction platform for the AI/ML Club event, with ~50 participants competing to extract hidden passwords from an AI (via the Gandalf API).",
-      "Implemented user authentication, session handling, and a live leaderboard to ensure fairness and engagement.",
-      "Deployed both frontend and backend on Render, managing hosting and production deployment."
-    ],
-    techStack: ["React", "Express.js", "SQL"]
-  },
+  // {
+  //   title: "CatWiz – AI Challenge Website",
+  //   period: "Aug 2025 - Present",
+  //   website: "https://catwiz.onrender.com/",
+  //   github: "",
+  //   description: [
+  //     "Developed a challenge-based AI interaction platform for the AI/ML Club event, with ~50 participants competing to extract hidden passwords from an AI (via the Gandalf API).",
+  //     "Implemented user authentication, session handling, and a live leaderboard to ensure fairness and engagement.",
+  //     "Deployed both frontend and backend on Render, managing hosting and production deployment."
+  //   ],
+  //   techStack: ["React", "Express.js", "SQL"]
+  // },
   {
     title: "Cinematch – Full-Stack Movie Recommendation Web App",
     period: "Apr 2025 - Present",
