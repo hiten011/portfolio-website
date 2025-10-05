@@ -33,7 +33,7 @@ export const skillCategories = [
   {
     category: "Languages",
     skills: [
-      { name: "Java", icon: "SiJava" },
+      { name: "Java", icon: "DiJava" },
       { name: "C/C++", icon: "SiCplusplus" },
       { name: "Python", icon: "SiPython" },
       { name: "JavaScript", icon: "SiJavascript" },
