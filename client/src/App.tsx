@@ -18,11 +18,10 @@ import { personalInfo } from "./constants/data";
 function Router() {
 
   function RedirectToResume() {
-    // const [, setLocation] = useLocation();
-    // setLocation(personalInfo.resumeUrl);
-
     window.open(personalInfo.resumeUrl, "_blank");
-    return <Home />;
+    const [, setLocation] = useLocation();
+    setLocation("/");
+    return null;
   }
 
   return (
