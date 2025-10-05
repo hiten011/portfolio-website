@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 const iconMap = {
   github: Github,
@@ -24,12 +25,32 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+
+    emailjs.send(
+      "service_upf8y7o",       
+      "template_l6mvebm",      
+      {
+        name: formData.name,     
+        email: formData.email,   
+        message: formData.message,
+        time: new Date().toLocaleString(), 
+      },
+      "wY8zpx2w5xcbe_2n0"   
+    )
+    .then(() => {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    })
+    .catch((err) => {
+      console.error(err);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+      });
     });
-    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
@@ -91,7 +112,7 @@ export default function Contact() {
                         id="message"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell me about your project or idea..."
+                        placeholder=""
                         rows={6}
                         required
                         data-testid="input-message"
