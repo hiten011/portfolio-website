@@ -144,16 +144,6 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Investment Tracker",
-    description: "Developed a comprehensive 13-page full-stack web application as my CS50 Final Project to help users track and manage their personal investments and financial health. The platform supports diverse asset classes including stocks, mutual funds, crypto, real estate, gold, debt instruments, and more, with a real-time net worth calculator and detailed visual analytics.",
-    technologies: ["Python", "Flask", "SQL", "Html", "CSS", "JavaScript"],
-    features: [],
-    liveUrl: "https://www.youtube.com/watch?v=RoQRuSm7XMQ",
-    githubUrl: "https://github.com/hiten011/Investment-Tracker",
-    date: "Nov 2023 - Dec 2023",
-  },
-  {
-    id: 5,
     title: "Tic-Tac-Toe with Computer",
     description: "Developed a fully functional Tic-Tac-Toe game in MATLAB featuring both single-player AI and multiplayer modes as part of a University of Adelaide course project. Implemented a custom decision-based algorithm that enables the computer to make intelligent and strategic moves against the player.",
     technologies: ["MATLAB"],
@@ -166,6 +156,16 @@ export const projects = [
     liveUrl: "https://youtu.be/lXfXcoInFVs",
     githubUrl: "https://github.com/hiten011/TIC-TAC-TOE-Computer",
     date: "May 2024 - May 2024",
+  },
+  {
+    id: 5,
+    title: "Investment Tracker",
+    description: "Developed a comprehensive 13-page full-stack web application as my CS50 Final Project to help users track and manage their personal investments and financial health. The platform supports diverse asset classes including stocks, mutual funds, crypto, real estate, gold, debt instruments, and more, with a real-time net worth calculator and detailed visual analytics.",
+    technologies: ["Python", "Flask", "SQL", "Html", "CSS", "JavaScript"],
+    features: [],
+    liveUrl: "https://www.youtube.com/watch?v=RoQRuSm7XMQ",
+    githubUrl: "https://github.com/hiten011/Investment-Tracker",
+    date: "Nov 2023 - Dec 2023",
   }
 
 
