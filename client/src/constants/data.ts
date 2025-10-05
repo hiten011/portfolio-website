@@ -124,7 +124,7 @@ export const projects = [
       "Normalized MySQL database schema for efficient data management",
       "Responsive swipeable interface for seamless user experience",
     ],
-    liveUrl: "https://cinematch-vert-gamma.vercel.app/home",
+    liveUrl: "https://cinematch-vert-gamma.vercel.app/",
     githubUrl: "https://github.com/hiten011/cinematch",
     date: "Apr 2025 - Present",
   },
