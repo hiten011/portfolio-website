@@ -72,17 +72,17 @@ export default function About() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-medium text-foreground mb-3">Databases</h3>
+                <h3 className="text-lg font-medium text-foreground mb-3">Embedded</h3>
                 <div className="flex flex-wrap gap-2">
-                  {skills.databases.map((skill) => (
+                  {skills.embedded.map((skill) => (
                     <SkillBadge key={skill} skill={skill} />
                   ))}
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-medium text-foreground mb-3">Tools & Technologies</h3>
+                <h3 className="text-lg font-medium text-foreground mb-3">Databases & Tools</h3>
                 <div className="flex flex-wrap gap-2">
-                  {skills.tools.map((skill) => (
+                  {skills.databases.map((skill) => (
                     <SkillBadge key={skill} skill={skill} />
                   ))}
                 </div>

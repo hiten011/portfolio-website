@@ -2,12 +2,12 @@
 
 export const personalInfo = {
   name: "Hiten Gupta",
-  title: "Computer Science Student & Software Developer",
+  title: "Junior Software Engineer & CS Student",
   email: "hitengupta12345@gmail.com",
   phone: "+61 415 765 047",
   location: "Adelaide, SA",
   bio:
-    "Passionate Computer Science student at University of Adelaide with a strong foundation in full-stack development and low-level programming. I also practice competitive programming and share coding challenges on LinkedIn to stay sharp and engaged.",
+    "Computer Science student at the University of Adelaide and Junior Software Engineer at Ortomi, where I build embedded firmware for robot companions shipped to 66+ countries. I enjoy full-stack web development, embedded systems, and competitive programming.",
   resumeUrl: "/resume.pdf",
 };
 
@@ -33,110 +33,92 @@ export const skillCategories = [
   {
     category: "Languages",
     skills: [
-      { name: "Java", icon: "DiJava" },
       { name: "C/C++", icon: "SiCplusplus" },
+      { name: "Java", icon: "DiJava" },
       { name: "Python", icon: "SiPython" },
       { name: "JavaScript", icon: "SiJavascript" },
-      { name: "TypeScript", icon: "SiTypescript" },
+      { name: "Embedded C", icon: "SiC" },
       { name: "Bash", icon: "SiGnubash" },
       { name: "MATLAB", icon: "SiMathworks" },
     ],
   },
   {
-    category: "Frontend",
+    category: "Web",
     skills: [
       { name: "React", icon: "SiReact" },
-      { name: "Vue", icon: "SiVuedotjs" },
-      { name: "HTML", icon: "SiHtml5" },
-      { name: "CSS", icon: "SiCss3" },
+      { name: "Vue.js", icon: "SiVuedotjs" },
+      { name: "Express", icon: "SiExpress" },
+      { name: "Flask", icon: "SiFlask" },
+      { name: "HTML/CSS", icon: "SiHtml5" },
       { name: "Tailwind", icon: "SiTailwindcss" },
       { name: "Bootstrap", icon: "SiBootstrap" },
     ],
   },
   {
-    category: "Backend",
+    category: "Embedded",
     skills: [
-      { name: "Node.js", icon: "SiNodedotjs" },
-      { name: "Express", icon: "SiExpress" },
-      { name: "Flask", icon: "SiFlask" },
+      { name: "ESP32", icon: "SiEspressif" },
+      { name: "Arduino", icon: "SiArduino" },
+      { name: "FreeRTOS", icon: "SiEspressif" },
+      { name: "PlatformIO", icon: "SiPlatformio" },
     ],
   },
   {
-    category: "Databases",
+    category: "Databases & Tools",
     skills: [
       { name: "MySQL", icon: "SiMysql" },
       { name: "MongoDB", icon: "SiMongodb" },
-      { name: "PostgreSQL", icon: "SiPostgresql" },
-    ],
-  },
-  {
-    category: "Tools & Technologies",
-    skills: [
       { name: "Git", icon: "SiGit" },
-      { name: "GitHub", icon: "SiGithub" },
-      { name: "Docker", icon: "SiDocker" },
-      { name: "Linux", icon: "SiLinux" },
-      // { name: "Redux", icon: "SiRedux" },
     ],
   },
 ];
 
 // Legacy format for backward compatibility
 export const skills = {
-  languages: ["Java", "C/C++", "Python", "Bash", "MATLAB"],
-  web: ["Node.js", "Express", "Vue", "React", "Flask", "HTML", "CSS", "JavaScript", "Bootstrap", "Tailwind"],
-  databases: ["SQL", "MongoDB"],
-  tools: ["Git", "GitHub", "Docker", "Linux"],
+  languages: ["C/C++", "Java", "Python", "JavaScript", "Embedded C", "Bash", "MATLAB"],
+  web: ["React", "Vue.js", "Express", "Flask", "HTML/CSS", "Tailwind", "Bootstrap"],
+  embedded: ["ESP32", "Arduino", "FreeRTOS", "PlatformIO"],
+  databases: ["MySQL", "MongoDB", "Git"],
 };
 
 export const projects = [
   {
     id: 1,
-    title: "Smart Course Advisor",
-    description: "Developed an AI-driven platform to recommend personalized university courses based on students’ preferences and goals.",
-    technologies: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React",
-        "Tailwind CSS",
-        "Node.js",
-        "Express",
-        "MySQL",
-        "Machine Learning"
-      ],
+    title: "CatWiz",
+    description: "A 13-level AI prompt injection challenge built for the AIML Club, where players try to trick an AI into revealing a hidden password. Each level introduces tougher guardrails, making it progressively harder to jailbreak the model. Ran the event live with 40+ participants.",
+    technologies: ["React", "Express", "MySQL", "Google OAuth"],
     features: [
-      "AI trained on real University of Adelaide course data",
-      "Responsive full stack website",
-      "",
+      "13 progressively harder prompt injection levels",
+      "Google OAuth for player authentication",
+      "Deployed on Render for the live event",
     ],
-    liveUrl: "https://smart-course-advisor.vercel.app/",
-    githubUrl: "https://github.com/hiten011/smart-course-advisor.git",
-    date: "Sep 2025 - Sep 2025",
+    liveUrl: "https://catwiz.aimlclub.org/",
+    githubUrl: "",
+    date: "Dec 2025 - Feb 2026",
   },
   {
     id: 2,
     title: "Cinematch",
-    description: "Built a Tinder-style movie recommendation platform that adapts to user preferences in real time through swiping interactions. Developed a custom algorithm that intelligently recommends movies based on user behavior and preference patterns.",
-    technologies: ["Node.js", "Express.js", "MySQL", "Vue.js", "HTML", "CSS", "JavaScript"],
+    description: "A Tinder-style movie recommendation app that adapts suggestions based on how you swipe. Uses a custom scoring algorithm that weighs movie metadata to figure out what you actually like, not just what’s popular. Built with a team of 4.",
+    technologies: ["Express.js", "MySQL", "Vue.js"],
     features: [
-      "Custom scoring algorithm for personalized movie suggestions",
-      "Normalized MySQL database schema for efficient data management",
-      "Responsive swipeable interface for seamless user experience",
+      "Custom scoring algorithm for personalized recommendations",
+      "Responsive swipe-based UI with smooth animations",
+      "Collaborative development with GitHub code reviews",
     ],
-    liveUrl: "https://cinematch-vert-gamma.vercel.app/",
+    liveUrl: "https://www.youtube.com/watch?v=R5sl3WtY2os",
     githubUrl: "https://github.com/hiten011/cinematch",
-    date: "Apr 2025 - Present",
+    date: "Apr 2025 - Dec 2025",
   },
   {
     id: 3,
     title: "Minesweeper 2.0",
-    description: "Rebuilt classic Minesweeper using OOP principles as part of university coursework. Applied encapsulation, inheritance, and modular design to enhance gameplay and structure.",
-    technologies: ["C++", "OOP", "Data Structures & Algorithms", "SFML"],
+    description: "A from-scratch rebuild of Minesweeper in C++ with a focus on clean object-oriented design. Built as a university project to explore how encapsulation and modular architecture can make even a simple game easier to extend and maintain.",
+    technologies: ["C++", "OOP", "SFML"],
     features: [
-      "Object-oriented architecture",
-      "Modular game design",
-      "Enhanced gameplay mechanics",
+      "Object-oriented architecture with encapsulation and inheritance",
+      "Modular game design for easy extensibility",
+      "Custom graphics rendering with SFML",
     ],
     liveUrl: "",
     githubUrl: "https://github.com/hiten011/minesweeper2.0",
@@ -145,44 +127,57 @@ export const projects = [
   {
     id: 4,
     title: "Tic-Tac-Toe with Computer",
-    description: "Developed a fully functional Tic-Tac-Toe game in MATLAB featuring both single-player AI and multiplayer modes as part of a University of Adelaide course project. Implemented a custom decision-based algorithm that enables the computer to make intelligent and strategic moves against the player.",
+    description: "A MATLAB-based Tic-Tac-Toe game with an AI opponent that plays at three difficulty levels. The computer uses a decision-tree algorithm to make strategic moves, from beginner-friendly to nearly unbeatable.",
     technologies: ["MATLAB"],
     features: [
-      "AI opponent with three difficulty levels: Easy, Medium, and Nightmare using decision trees and strategy algorithms",
-      "Custom multiplayer algorithm for smooth two-player gameplay against the computer",
-      "Modular code design for scalability and easy AI/UI updates",
-      "Interactive GUI that encourages strategic play and engagement",
+      "Three AI difficulty levels using decision trees",
+      "Two-player and single-player modes",
+      "Interactive GUI with a clean game interface",
     ],
     liveUrl: "https://youtu.be/lXfXcoInFVs",
     githubUrl: "https://github.com/hiten011/TIC-TAC-TOE-Computer",
-    date: "May 2024 - May 2024",
+    date: "May 2024",
   },
   {
     id: 5,
     title: "Investment Tracker",
-    description: "Developed a comprehensive 13-page full-stack web application as my CS50 Final Project to help users track and manage their personal investments and financial health. The platform supports diverse asset classes including stocks, mutual funds, crypto, real estate, gold, debt instruments, and more, with a real-time net worth calculator and detailed visual analytics.",
-    technologies: ["Python", "Flask", "SQL", "Html", "CSS", "JavaScript"],
-    features: [],
+    description: "A full-stack web app built as my CS50 final project to track personal investments across stocks, crypto, mutual funds, real estate, and more. Features a real-time net worth calculator and visual analytics to help you see where your money actually is.",
+    technologies: ["Python", "Flask", "SQL", "HTML", "CSS", "JavaScript"],
+    features: [
+      "Tracks multiple asset classes in one dashboard",
+      "Real-time net worth calculator",
+      "Visual analytics and portfolio breakdown",
+    ],
     liveUrl: "https://www.youtube.com/watch?v=RoQRuSm7XMQ",
     githubUrl: "https://github.com/hiten011/Investment-Tracker",
     date: "Nov 2023 - Dec 2023",
-  }
-
-
+  },
 ];
 
 export const experience = [
   {
     id: 1,
+    role: "Junior Software Engineer",
+    company: "Ortomi",
+    location: "Adelaide, SA",
+    period: "Dec 2025 - Present",
+    responsibilities: [
+      "Developing embedded firmware in C/C++ for ESP32-based robot companions, a consumer product shipped to 66+ countries with 5,000+ units sold",
+      "Optimized ESP32 Non-Volatile Storage (NVS) data storage logic, achieving a 66x read/write speed improvement",
+      "Reduced LittleFS overhead by 500ms through a file caching strategy for frequently accessed files",
+      "Built a QR-code-based diagnostic tool to retrieve and analyze ESP32 core dump backtraces, reducing firmware debugging turnaround time",
+      "Diagnosed and resolved firmware issues reported by customers",
+    ],
+  },
+  {
+    id: 2,
     role: "Software Development Intern",
     company: "James Anthony Consulting",
     location: "Adelaide, SA",
-    period: "June 2025 - Present",
+    period: "June 2025 - Nov 2025",
     responsibilities: [
-      "Contributed to client projects Slow Tours and TestInvest, focusing on feature development, documentation, and quality assurance",
-      "Designed and developed new features, improving functionality and enhancing user experience",
-      "Prepared clear and comprehensive technical documentation to support ongoing development",
-      "Performed testing and debugging, ensuring reliability and alignment with client requirements",
+      "Delivered features for two client-facing applications (Slow Tours, TestInvest) using React and Express.js",
+      "Identified and resolved responsive UI bugs, improving layout consistency across screen sizes",
     ],
   },
 ];
@@ -192,7 +187,7 @@ export const education = {
   school: "University of Adelaide",
   location: "Adelaide, SA",
   period: "Expected Graduation: Dec, 2026",
-  gpa: "6.75/7.0",
+  gpa: "6.67/7.0",
   scholarship: "30% Global Citizens Scholarship",
   coursework: [
     "Web & Database Computing",
@@ -200,8 +195,7 @@ export const education = {
     "Software Engineering",
     "Data Structures & Algorithms",
     "Object-Oriented Programming",
-    "Financial Institutions & Markets",
-    "MATLAB & C",
+    "Computer System",
     "Mathematics IA & IB",
   ],
 };
@@ -211,7 +205,7 @@ export const additionalInfo = {
     "Volunteer at YouX",
     "Active in AUCPL",
     "LeetCode Contests participant",
-    "AI/ML Club Finance Treasurer",
+    "AI/ML Club Finance Treasurer & Web Developer",
   ],
   hobbies: ["Investing in stock market", "Playing badminton"],
   certifications: [
