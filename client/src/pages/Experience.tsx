@@ -1,74 +1,97 @@
 import { motion } from "framer-motion";
 import { experience } from "@/constants/data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase } from "lucide-react";
 
 export default function Experience() {
   return (
-    <div className="min-h-screen py-16 md:py-24">
+    <div className="min-h-screen py-16 md:py-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 flex items-center gap-3" data-testid="text-page-title">
-            <Briefcase className="h-10 w-10 text-primary" />
-            Work Experience
-          </h1>
-          <p className="text-lg text-muted-foreground mb-12">
-            My professional journey and contributions in software development.
-          </p>
+
+          {/* Header */}
+          <div className="mb-14">
+            <div className="flex items-center gap-2 mb-5">
+              <span className="font-mono text-xs text-primary">02</span>
+              <span className="h-px w-6 bg-primary/50" />
+              <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                Work Experience
+              </span>
+            </div>
+            <h1
+              className="font-display text-4xl md:text-6xl font-extrabold text-foreground tracking-tight leading-none mb-4"
+              data-testid="text-page-title"
+            >
+              Where I've<br />
+              <span className="text-primary">Worked</span>
+            </h1>
+            <p className="text-muted-foreground text-base max-w-xl leading-relaxed">
+              Professional experience building production systems that ship to real users.
+            </p>
+          </div>
 
           {/* Timeline */}
           <div className="relative">
-            {/* Timeline line */}
-            <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+            {/* Vertical line */}
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-border hidden md:block" />
 
-            {/* Experience Items */}
-            <div className="space-y-8">
-              {experience.map((exp, index) => (
+            <div className="space-y-10">
+              {experience.map((exp, i) => (
                 <motion.div
                   key={exp.id}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
+                  transition={{ duration: 0.5, delay: i * 0.12 }}
+                  className="relative md:pl-14"
+                  data-testid={`card-experience-${exp.id}`}
                 >
                   {/* Timeline dot */}
-                  <div className="hidden md:flex absolute left-8 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
+                  <div className="hidden md:flex absolute left-0 top-6 w-8 h-8 rounded-full bg-background border-2 border-primary items-center justify-center -translate-x-1/2 z-10">
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                  </div>
 
-                  {/* Content Card */}
-                  <div className="md:ml-20">
-                    <Card className="hover:shadow-lg transition-shadow" data-testid={`card-experience-${exp.id}`}>
-                      <CardHeader>
-                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
-                          <div>
-                            <CardTitle className="text-2xl">{exp.role}</CardTitle>
-                            <p className="text-lg text-primary font-medium mt-1">{exp.company}</p>
-                          </div>
-                          <div className="text-sm text-muted-foreground md:text-right">
-                            <p className="font-medium">{exp.period}</p>
-                            <p>{exp.location}</p>
-                          </div>
+                  {/* Card */}
+                  <div className="rounded-lg border border-border bg-card hover:border-primary/40 transition-colors duration-300 overflow-hidden">
+
+                    {/* Card header */}
+                    <div className="px-6 py-5 border-b border-border/60 bg-muted/20">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                        <div>
+                          <h2 className="font-display text-xl font-bold text-foreground">{exp.role}</h2>
+                          <p className="text-primary font-semibold mt-0.5">{exp.company}</p>
                         </div>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="space-y-3">
-                          {exp.responsibilities.map((resp, idx) => (
-                            <li key={idx} className="flex gap-3">
-                              <span className="text-primary mt-1.5 flex-shrink-0">•</span>
-                              <span className="text-muted-foreground">{resp}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
+                        <div className="sm:text-right flex-shrink-0">
+                          <p className="font-mono text-xs text-muted-foreground">{exp.period}</p>
+                          <p className="font-mono text-xs text-muted-foreground">{exp.location}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Responsibilities */}
+                    <div className="px-6 py-5">
+                      <ul className="space-y-3">
+                        {exp.responsibilities.map((r, j) => (
+                          <motion.li
+                            key={j}
+                            initial={{ opacity: 0, x: -8 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: i * 0.12 + j * 0.05 }}
+                            className="flex gap-3 text-sm text-muted-foreground leading-relaxed"
+                          >
+                            <span className="font-mono text-primary mt-0.5 flex-shrink-0 text-xs">→</span>
+                            <span>{r}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
+
         </motion.div>
       </div>
     </div>
