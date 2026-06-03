@@ -1,7 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { ExternalLink, Github, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ProjectCardProps {
@@ -23,62 +20,82 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
       whileHover={{ y: -4 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="bracket-card group h-full"
+      data-testid={`card-project-${title.toLowerCase().replace(/\s+/g, "-")}`}
     >
-      <Card className="h-full flex flex-col hover:shadow-lg transition-shadow" data-testid={`card-project-${title.toLowerCase().replace(/\s+/g, '-')}`}>
-        <CardHeader>
-          <div className="flex justify-between items-start gap-4">
-            <CardTitle className="text-xl">{title}</CardTitle>
-            <span className="text-xs text-muted-foreground whitespace-nowrap">{date}</span>
+      <div className="h-full flex flex-col rounded-lg border border-border bg-card hover:border-primary/40 transition-colors duration-300 overflow-hidden">
+
+        {/* Top bar */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-border/60 bg-muted/30">
+          <div className="flex gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="w-2.5 h-2.5 rounded-full bg-border" />
+            <span className="w-2.5 h-2.5 rounded-full bg-primary/60" />
           </div>
-        </CardHeader>
-        
-        <CardContent className="flex-1">
-          <p className="text-muted-foreground mb-4">{description}</p>
-          
-          <div className="flex flex-wrap gap-2">
+          <span className="font-mono text-[11px] text-muted-foreground flex items-center gap-1.5">
+            <Calendar className="h-3 w-3" />
+            {date}
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 flex flex-col px-5 py-5">
+          <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
+            {title}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+            {description}
+          </p>
+
+          {/* Tech chips */}
+          <div className="flex flex-wrap gap-1.5 mb-5">
             {technologies.map((tech) => (
-              <Badge key={tech} variant="secondary" className="text-xs" data-testid={`badge-tech-${tech.toLowerCase()}`}>
+              <span
+                key={tech}
+                className="font-mono text-[11px] px-2 py-0.5 rounded-md bg-accent text-muted-foreground border border-border/60"
+                data-testid={`badge-tech-${tech.toLowerCase()}`}
+              >
                 {tech}
-              </Badge>
+              </span>
             ))}
           </div>
-        </CardContent>
 
-        <CardFooter className="flex gap-2">
-          {liveUrl && (
-            <Button
-              variant="default"
-              size="sm"
-              asChild
-              className="flex-1"
-              data-testid="button-live-demo"
-            >
-              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-2" />
+          {/* Links */}
+          <div className="flex gap-2">
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 transition-opacity duration-200"
+                data-testid="button-live-demo"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
                 Live Demo
               </a>
-            </Button>
-          )}
-          {githubUrl && (
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="flex-1"
-              data-testid="button-github"
-            >
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-2" />
+            )}
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-border bg-transparent text-foreground text-xs font-semibold hover:bg-accent hover:border-primary/40 transition-all duration-200"
+                data-testid="button-github"
+              >
+                <Github className="h-3.5 w-3.5" />
                 GitHub
               </a>
-            </Button>
-          )}
-        </CardFooter>
-      </Card>
+            )}
+            {!liveUrl && !githubUrl && (
+              <span className="font-mono text-xs text-muted-foreground italic">
+                Private project
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }

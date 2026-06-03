@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import * as SimpleIcons from "react-icons/si";
 import { DiJava } from "react-icons/di";
 import { IconType } from "react-icons";
@@ -8,24 +7,23 @@ interface SkillCardProps {
   icon: string;
 }
 
-export default function SkillCard({ name, icon }: SkillCardProps) {
-  // combine all icons including DiJava
-  const iconMap: Record<string, IconType> = {
-    ...SimpleIcons,
-    DiJava,
-  };
+const iconMap: Record<string, IconType> = {
+  ...SimpleIcons,
+  DiJava,
+};
 
-  const IconComponent = iconMap[icon]; // use iconMap here
+export default function SkillCard({ name, icon }: SkillCardProps) {
+  const Icon = iconMap[icon];
 
   return (
-    <Card
-      className="hover-elevate transition-all duration-300 hover:shadow-lg"
+    <div
+      className="group flex items-center gap-3 px-3 py-2.5 rounded-lg border border-border bg-card hover:border-primary/50 hover:bg-accent/50 transition-all duration-200 cursor-default"
       data-testid={`card-skill-${name.toLowerCase()}`}
     >
-      <CardContent className="flex flex-col items-center justify-center p-6 gap-3">
-        {IconComponent && <IconComponent className="h-10 w-10 text-primary" />}
-        <p className="text-sm font-medium text-center text-foreground">{name}</p>
-      </CardContent>
-    </Card>
+      {Icon && (
+        <Icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-200 flex-shrink-0" />
+      )}
+      <span className="text-sm font-medium text-foreground truncate">{name}</span>
+    </div>
   );
 }
