@@ -4,6 +4,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
@@ -21,6 +23,9 @@ export default defineConfig({
           ),
         ]
       : []),
+    cloudflare({
+      configPath: path.resolve(__dirname, "wrangler.jsonc"),
+    }),
   ],
   resolve: {
     alias: {
@@ -33,6 +38,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
+    cssMinify: "esbuild",
   },
   server: {
     fs: {

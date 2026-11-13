@@ -21,6 +21,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { fileURLToPath } from "url";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { cloudflare } from "@cloudflare/vite-plugin";
 var __dirname = path.dirname(fileURLToPath(import.meta.url));
 var vite_config_default = defineConfig({
   plugins: [
@@ -33,7 +34,10 @@ var vite_config_default = defineConfig({
       await import("@replit/vite-plugin-dev-banner").then(
         (m) => m.devBanner()
       )
-    ] : []
+    ] : [],
+    cloudflare({
+      configPath: path.resolve(__dirname, "wrangler.jsonc")
+    })
   ],
   resolve: {
     alias: {
@@ -45,7 +49,8 @@ var vite_config_default = defineConfig({
   root: path.resolve(__dirname, "client"),
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
-    emptyOutDir: true
+    emptyOutDir: true,
+    cssMinify: "esbuild"
   },
   server: {
     fs: {
